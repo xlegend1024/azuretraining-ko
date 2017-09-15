@@ -77,36 +77,6 @@
             }
         },
         {
-            "name": "microsoft.custom-script-linux-20170915103155",
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "incremental",
-                "templateLink": {
-                    "uri": "https://gallery.azure.com/artifact/20161101/microsoft.custom-script-linux-arm.2.0.50/Artifacts/MainTemplate.json"
-                },
-                "parameters": {
-                    "vmName": {
-                        "value": "ubt16tls-dev-base"
-                    },
-                    "location": {
-                        "value": "westus"
-                    },
-                    "fileUris": {
-                        "value": [
-                            "https://raw.githubusercontent.com/xlegend1024/azuretraining-ko/master/run.sh"
-                        ]
-                    },
-                    "commandToExecute": {
-                        "value": "sh run.sh"
-                    }
-                }
-            },
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
-            ]
-        },
-        {
             "name": "[parameters('networkInterfaceName')]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2016-09-01",
@@ -140,9 +110,9 @@
         }
     ],
     "outputs": {
-        "adminUsername": {
+        "adminPW": {
             "type": "string",
-            "value": "[parameters('adminUsername')]"
+            "value": "[parameters('adminPassword')]"
         }
     }
 }
